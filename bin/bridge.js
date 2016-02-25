@@ -4,7 +4,7 @@ var Bridge = require('bitcoin-net').Bridge
 var argv = require('minimist')(process.argv.slice(2))
 var params = require(argv.network || 'webcoin-bitcoin')
 
-var bridge = new Bridge(params)
+var bridge = new Bridge(params.net)
 
 bridge.on('connection', (peer) => {
   var uri = `${peer.socket.transport}://${peer.remoteAddress}`
