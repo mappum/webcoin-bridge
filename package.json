@@ -1,0 +1,25 @@
+{
+  "name": "webcoin-bridge",
+  "version": "0.0.0",
+  "description": "Bridge connections from the Websocket/WebRTC network to the TCP network",
+  "main": "bin/bridge.js",
+  "bin": "bin/bridge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webcoin",
+    "webrtc",
+    "websocket",
+    "bridge",
+    "p2p",
+    "bitcoin"
+  ],
+  "author": "Matt Bell <mappum@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bitcoin-net": "^1.2.0",
+    "minimist": "^1.2.0",
+    "webcoin-bitcoin": "^1.0.3"
+  }
+}
