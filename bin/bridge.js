@@ -18,7 +18,7 @@ bridge.on('connection', (peer) => {
 })
 
 bridge.on('bridge', function (webPeer, tcpPeer) {
-  console.log(`Bridging WebRTC connection ` +
+  console.log(`Bridging connection ` +
     `from ${webPeer.socket.transport}://${webPeer.remoteAddress} ` +
     `to tcp://${tcpPeer.remoteAddress}:${tcpPeer.remotePort}`)
 })
