@@ -18,8 +18,8 @@
   "author": "Matt Bell <mappum@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bitcoin-net": "^1.2.2",
+    "bitcoin-net": "^2.2.2",
     "minimist": "^1.2.0",
-    "webcoin-bitcoin": "^2.0.0"
+    "webcoin-bitcoin": "^2.1.1"
   }
 }
