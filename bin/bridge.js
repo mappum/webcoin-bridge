@@ -23,12 +23,8 @@ bridge.on('bridge', function (webPeer, tcpPeer) {
     `to tcp://${tcpPeer.remoteAddress}:${tcpPeer.remotePort}`)
 })
 
-bridge.accept({ port: argv.port }, (err) => {
+bridge.accept(argv.port, (err) => {
   if (err) return console.error(err)
-  if (bridge.acceptingWebsocket) {
-    console.log(`Accepting websocket connections on port ${bridge.websocketPort}`)
-  }
-  if (bridge.acceptingWebRTC) {
-    console.log(`Accepting webrtc connections`)
-  }
+  console.log(`Accepting websocket connections on port ${bridge.websocketPort}`)
+  console.log(`Accepting webrtc connections`)
 })
