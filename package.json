@@ -1,6 +1,6 @@
 {
   "name": "webcoin-bridge",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Bridge connections from the Websocket/WebRTC network to the TCP network",
   "main": "bin/bridge.js",
   "bin": {
