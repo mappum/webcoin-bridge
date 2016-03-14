@@ -3,7 +3,9 @@
   "version": "0.0.5",
   "description": "Bridge connections from the Websocket/WebRTC network to the TCP network",
   "main": "bin/bridge.js",
-  "bin": "bin/bridge.js",
+  "bin": {
+    "webcoin-bridge": "bin/bridge.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,5 +23,14 @@
     "bitcoin-net": "^2.2.2",
     "minimist": "^1.2.0",
     "webcoin-bitcoin": "^2.1.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mappum/webcoin-bridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mappum/webcoin-bridge/issues"
+  },
+  "homepage": "https://github.com/mappum/webcoin-bridge#readme"
 }
