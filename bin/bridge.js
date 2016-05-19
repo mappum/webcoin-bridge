@@ -34,8 +34,8 @@ if (argv.cert && argv.key) {
     cert: fs.readFileSync(argv.cert),
     key: fs.readFileSync(argv.key)
   }
-  if (argv.chain) {
-    opts.https.chain = fs.readFileSync(argv.chain)
+  if (argv.ca) {
+    opts.https.ca = fs.readFileSync(argv.ca)
   }
 }
 
