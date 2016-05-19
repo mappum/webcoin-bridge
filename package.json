@@ -22,7 +22,7 @@
   "dependencies": {
     "bitcoin-net": "^4.2.0",
     "minimist": "^1.2.0",
-    "webcoin-bitcoin": "^2.1.1"
+    "webcoin-bitcoin": "^3.0.0"
   },
   "devDependencies": {},
   "repository": {
