@@ -23,6 +23,10 @@ bridge.on('bridge', function (webPeer, tcpPeer) {
     `to tcp://${tcpPeer.remoteAddress}:${tcpPeer.remotePort}`)
 })
 
+bridge.on('connectError', function (err) {
+  console.log('Connect error: ' + err.stack)
+})
+
 bridge.accept(argv.port, (err) => {
   if (err) return console.error(err)
   console.log(`Accepting websocket connections on port ${bridge.websocketPort}`)
