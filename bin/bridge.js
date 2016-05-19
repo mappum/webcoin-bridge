@@ -29,8 +29,12 @@ bridge.on('connectError', function (err) {
 })
 
 var opts = { port: argv.port }
-if (argv.cert) opts.cert = fs.readFileSync(argv.cert)
-if (argv.key) opts.key = fs.readFileSync(argv.key)
+if (argv.cert && argv.key) {
+  opts.https = {
+    cert: fs.readFileSync(argv.cert),
+    key: fs.readFileSync(argv.key)
+  }
+}
 
 bridge.accept(opts, (err) => {
   if (err) return console.error(err)
