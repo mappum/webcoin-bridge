@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+var fs = require('fs')
 var Bridge = require('bitcoin-net').Bridge
 var argv = require('minimist')(process.argv.slice(2))
 var params = require(argv.network || 'webcoin-bitcoin')
@@ -27,8 +28,13 @@ bridge.on('connectError', function (err) {
   console.log('Connect error: ' + err.stack)
 })
 
-bridge.accept(argv.port, (err) => {
+var opts = { port: argv.port }
+if (argv.cert) opts.cert = fs.readFileSync(argv.cert)
+if (argv.key) opts.key = fs.readFileSync(argv.key)
+
+bridge.accept(opts, (err) => {
   if (err) return console.error(err)
-  console.log(`Accepting websocket connections on port ${bridge.websocketPort}`)
+  console.log(`Accepting ${argv.cert ? 'secure ' : ''}` +
+    `websocket connections on port ${bridge.websocketPort}`)
   console.log(`Accepting webrtc connections`)
 })
