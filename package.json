@@ -7,7 +7,7 @@
     "webcoin-bridge": "bin/bridge.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "standard src/*.js bin/*.js && dependency-check package.json",
     "build": "rm -rf lib && babel --presets es2015 src -d lib",
     "source": "rm -rf lib && ln -s src lib",
     "prepublish": "npm run build",
@@ -26,6 +26,7 @@
   "dependencies": {
     "electron-webrtc": "^0.2.12",
     "minimist": "^1.2.0",
+    "old": "^0.1.3",
     "on-object": "^1.0.0",
     "once": "^1.4.0",
     "peer-exchange": "^2.0.0",
@@ -34,7 +35,9 @@
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
-    "babel-preset-es2015": "^6.16.0"
+    "babel-preset-es2015": "^6.16.0",
+    "dependency-check": "^2.6.0",
+    "standard": "^8.3.0"
   },
   "repository": {
     "type": "git",
