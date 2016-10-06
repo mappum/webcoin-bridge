@@ -35,7 +35,7 @@ class Bridge extends EventEmitter {
   getPeers (cb) {
     var seeds = this.params.dnsSeeds
     getDNSPeers(seeds, (err, addresses) => {
-      if (err) return cb(err)
+      if (err) return setImmediate(() => this.getPeers(cb))
       var candidates = addresses.map((a) => this.connectFunc(a))
       cb(null, candidates)
     })
@@ -48,7 +48,7 @@ class Bridge extends EventEmitter {
         cb(null, socket)
       })
       socket.on('error', (err) => {
-        console.log(err)
+        this.emit('connectError', err)
       })
     }
   }
