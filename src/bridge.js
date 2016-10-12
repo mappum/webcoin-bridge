@@ -11,7 +11,7 @@ const { random, floor } = Math
 
 function getDNSPeers (seeds, cb) {
   var seed = seeds[floor(random() * seeds.length)]
-  dns.resolve(seed, cb)
+  dns.resolve(seed, (...args) => cb(...args, seed))
 }
 
 class Bridge extends EventEmitter {
@@ -34,15 +34,15 @@ class Bridge extends EventEmitter {
 
   getPeers (cb) {
     var seeds = this.params.dnsSeeds
-    getDNSPeers(seeds, (err, addresses) => {
+    getDNSPeers(seeds, (err, addresses, seed) => {
       if (err) return setImmediate(() => this.getPeers(cb))
-      var candidates = addresses.map((a) => this.connectFunc(a))
+      var candidates = addresses.map((a) => this.createCandidate(a, seed))
       cb(null, candidates)
     })
   }
 
-  connectFunc (address) {
-    return (cb) => {
+  createCandidate (address, seed) {
+    var candidate = (cb) => {
       cb = once(cb)
       var socket = net.connect(this.params.defaultPort, address, () => {
         cb(null, socket)
@@ -51,6 +51,14 @@ class Bridge extends EventEmitter {
         this.emit('connectError', err)
       })
     }
+    candidate.getConnectInfo = () => ({
+      bridge: {
+        destAddress: address,
+        destPort: this.params.defaultPort,
+        dnsSeed: seed
+      }
+    })
+    return candidate
   }
 }
 
