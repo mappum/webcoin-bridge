@@ -28,7 +28,10 @@ class Bridge extends EventEmitter {
 
     this.server = ws.createServer({ server }, (socket) => {
       socket.on('error', (err) => this.emit('error', err))
-      this.exchange.accept(socket)
+      this.exchange.accept(socket, (err, peer) => {
+        if (err) return this.emit('error', err)
+        peer.on('error', (err) => this.emit('error', err))
+      })
     })
   }
 
