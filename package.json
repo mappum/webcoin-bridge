@@ -30,7 +30,7 @@
     "on-object": "^1.0.0",
     "once": "^1.4.0",
     "peer-exchange": "^2.0.0",
-    "webcoin-bitcoin": "^3.0.0",
+    "webcoin-bitcoin": "^3.1.4",
     "websocket-stream": "^3.3.0"
   },
   "devDependencies": {
