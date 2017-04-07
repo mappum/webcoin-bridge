@@ -31,7 +31,7 @@
     "once": "^1.4.0",
     "peer-exchange": "^2.0.0",
     "webcoin-bitcoin": "^3.0.0",
-    "websocket-stream": "^3.3.0"
+    "websocket-stream": "^4.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
