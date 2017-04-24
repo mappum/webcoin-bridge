@@ -48,6 +48,6 @@
   },
   "homepage": "https://github.com/mappum/webcoin-bridge#readme",
   "optionalDependencies": {
-    "wrtc": "0.0.61"
+    "wrtc": "0.0.62"
   }
 }
